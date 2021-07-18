@@ -13,7 +13,7 @@ class Passcard(models.Model):
     def __str__(self):
         if self.is_active:
             return self.owner_name
-        return f'{self.owner_name} (inactive)'
+        return f"{self.owner_name} (inactive)"
 
 
 class Visit(models.Model):
@@ -23,12 +23,12 @@ class Visit(models.Model):
     leaved_at = models.DateTimeField(null=True)
 
     def __str__(self):
-        return '{user} entered at {entered} {leaved}'.format(
+        return "{user} entered at {entered} {leaved}".format(
             user=self.passcard.owner_name,
             entered=self.entered_at,
             leaved=(
-                'leaved at ' + str(self.leaved_at) if self.leaved_at else
-                'not leaved'
+                "leaved at " + str(self.leaved_at) if self.leaved_at else
+                "not leaved"
             )
         )
 
