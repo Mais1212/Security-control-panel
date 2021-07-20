@@ -33,17 +33,17 @@ class Visit(models.Model):
         )
 
     def get_duration(self):
-        entered_at = django.utils.timezone.localtime(self.entered_at)
         leaved_at = django.utils.timezone.localtime(self.leaved_at)
-        time_now = django.utils.timezone.now()
+        entered_at = django.utils.timezone.localtime(self.entered_at)
         duration = leaved_at - entered_at
 
-        return duration, entered_at
+        return duration
 
     def is_visit_long(visit, minutes=60):
-        duration = visit.get_duration()[0]
+        is_long = False
+        duration = visit.get_duration()
         minutes = datetime.timedelta(minutes=minutes)
 
         if duration > minutes:
-            return True
-        return False
+            is_long = True
+        return is_long

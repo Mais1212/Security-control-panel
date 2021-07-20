@@ -11,11 +11,11 @@ def storage_information_view(request):
 
     for visit in visits:
         user_name = visit.passcard.owner_name
-        duration, time_entering = visit.get_duration()
+        duration = visit.get_duration()
 
         person_info = {
             "who_entered": user_name,
-            "entered_at": time_entering,
+            "entered_at": visit.entered_at,
             "duration": duration,
         }
 
