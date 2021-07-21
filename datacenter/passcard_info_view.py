@@ -9,16 +9,13 @@ def passcard_info_view(request, passcode):
     passcard = visits[0].passcard
 
     for visit in visits:
-        is_strange = False
         duration = visit.get_duration()
-        if visit.is_visit_long():
-            is_strange = True
 
         this_passcard_visits.append(
             {
                 "entered_at": visit.entered_at,
                 "duration": duration,
-                "is_strange": is_strange
+                "is_strange": visit.is_visit_long()
             })
 
     context = {

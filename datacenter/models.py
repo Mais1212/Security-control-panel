@@ -40,10 +40,7 @@ class Visit(models.Model):
         return duration
 
     def is_visit_long(visit, minutes=60):
-        is_long = False
         duration = visit.get_duration()
         minutes = datetime.timedelta(minutes=minutes)
 
-        if duration > minutes:
-            is_long = True
-        return is_long
+        return duration > minutes
