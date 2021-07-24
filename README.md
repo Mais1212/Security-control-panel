@@ -2,9 +2,24 @@
 
 Система слежения за посетителями банка.
 
+
+## Настройка
+В папке project должен быть создаг файл `.env`, в нем нужно создать и заполнить по образцу
+```
+ENGINE = django.db.backends.postgresql_psycopg2
+HOST = pypo.org
+PORT = 5124
+NAME = checklist
+USER = slime
+PASSWORD = osipov123
+
+DEBUG = True
+```
+Строка `DEBUG` опциональная.
+
 ## Запуск
 
-Для запуска блога у вас уже должен быть установлен Python 3. Также рядом с `manage.py` должен лежать файл базы данных `db.sqlite3`.
+Для запуска блога у вас уже должен быть установлен Python 3.
 
 Установите зависимости:
 
@@ -15,5 +30,5 @@ $ pip install -r requirements.txt
 Запустите сервер
 
 ```sh
-$ python main.py
+$ python manage.py runserver 0.0.0.0:8000
 ```
