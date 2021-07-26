@@ -12,6 +12,7 @@ PORT = 5124
 NAME = checklist
 USER = slime
 PASSWORD = osipov123
+SECRET_KEY = "REPLACE_ME"
 
 DEBUG = True
 ```
